@@ -1,0 +1,77 @@
+Sequence
+	:da
+
+		Item
+			:m
+				:da
+
+		add_high
+			:aa
+				sequence
+					Sequence
+
+				item
+					Item
+				!
+					Sequence
+
+		add_high_2
+			:aa
+				sequence
+					Sequence
+
+				item
+					Item
+				!
+					Sequence
+
+		insert
+			:aa
+				sequence
+					Sequence
+
+				position
+					:0-
+				item
+					Item
+				!
+					Sequence
+
+		item_0
+			:aa
+				sequence
+					Sequence
+
+				position
+					:0-
+				!
+					Item
+						:td
+							The item after position.
+
+		item_1
+			:aa
+				sequence
+					Sequence
+
+				!
+					Item
+						:td
+							The last item
+
+		mutate_0
+			:aa
+				sequence
+					Sequence
+
+				position
+					:0-
+
+				item
+					Item
+						:td
+							The new item
+				!
+					Item
+						:td
+							The old item.

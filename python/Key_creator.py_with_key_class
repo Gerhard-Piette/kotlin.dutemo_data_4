@@ -1,0 +1,164 @@
+# Open a file with UTF-8 encoding and read its contents
+from functools import cmp_to_key
+
+
+def get_keyword_list() -> list[str]:
+    ret = list()
+    filePath = "keyword.u"
+    with open(filePath, "r", encoding="utf-8") as file:
+        contents = file.read()
+        for keyword in contents.split("\n"):
+            if keyword != "":
+                ret.append(keyword)
+    return ret
+
+
+def get_token_name_list() -> list[str]:
+    ret = list()
+    filePath = "token_name.u"
+    with open(filePath, "r", encoding="utf-8") as file:
+        contents = file.read()
+        for keyword in contents.split("\n"):
+            if keyword != "":
+                ret.append(keyword)
+    return ret
+
+
+def get_kotlin_part0() -> str:
+    ret = "package com.volupism.dutemo_data_4" + "\n"
+    ret += "\n"
+    ret += "import com.volupism.s2_0.S2" + "\n"
+    ret += "\n"
+    ret += "/**" + "\n"
+    ret += " * Created by Key_creator.py" + "\n"
+    ret += " */" + "\n"
+    ret += "class Key_collection {" + "\n"
+    keyword_list = get_keyword_list()
+    token_name_list = get_token_name_list()
+    name_list = list()
+    name_list.extend(keyword_list)
+    name_list.extend(token_name_list)
+    sort_keyword_by_unicode(name_list)
+    ret += "\n"
+    ret += "companion object {"
+    for keyword in name_list:
+        ret += "@JvmStatic" + "\n"
+        ret += (
+            "val "
+            + get_name(keyword)
+            + ' = Key("'
+            + get_name(keyword)
+            + '", "'
+            + keyword
+            + '")'
+            + "\n"
+        )
+    ret += "}"
+    ret += "\n"
+    ret += "var keyword_c: S2<Key>" + "\n"
+    ret += "\n"
+    return ret
+
+
+def get_name(key: str) -> str:
+    ret = key
+    ret = ret.replace("'", "_Apo_")
+    ret = ret.replace("?", "_QM_")
+    ret = ret.replace("!", "_EM_")
+    ret = ret.replace("=", "_EQ_")
+    ret = ret.replace("<", "_LT_")
+    ret = ret.replace(">", "_GT_")
+    ret = ret.replace(".", "_Point_")
+    ret = ret.replace(",", "_Comma_")
+    ret = ret.replace(";", "_Semicolon_")
+    ret = ret.replace(":", "_Colon_")
+    ret = ret.replace("(", "_LeftRound_")
+    ret = ret.replace(")", "_RightRound_")
+    ret = ret.replace("+", "_Plus_")
+    ret = ret.replace("-", "_Minus_")
+    return ret
+
+
+def get_kotlin_part1() -> str:
+    ret = "\n"
+    ret += "constructor() {" + "\n"
+    ret += "// Created by Key_creator.py" + "\n"
+    ret += "var keyword_list = listOf(" + "\n"
+    keyword_list = get_keyword_list()
+    sort_keyword_by_length(keyword_list)
+    for keyword in keyword_list:
+        # ret += "\"" + keyword + "\"," + "\n"
+        ret += get_name(keyword) + "," + "\n"
+    ret += ")" + "\n"
+    ret += "this.keyword_c = S2(keyword_list)" + "\n"
+    ret += "}" + "\n"
+    return ret
+
+
+def get_kotlin_part2() -> str:
+    ret = "\n"
+    ret += "}"
+    return ret
+
+
+def create_kotlin():
+    kotlin = get_kotlin_part0()
+    kotlin += get_kotlin_part1()
+    kotlin += get_kotlin_part2()
+    # import os
+    # print(os. getcwd())
+    filePath = "../src/main/kotlin/com/volupism/dutemo_data_1/Key_collection.kt"
+    with open(filePath, "w", encoding="utf-8") as file:
+        file.write(kotlin)
+    print("File written : " + filePath)
+
+
+def sort_keyword_by_length(keyword_list: list[str]):
+    def comparator(a: str, b: str) -> int:
+        if len(a) < len(b):
+            return 1
+        elif len(a) == len(b):
+            return 0
+        else:
+            return -1
+
+    keyword_list.sort(key=cmp_to_key(comparator))
+
+
+def sort_keyword_by_unicode(keyword_list: list[str]):
+    def comparator(a: str, b: str) -> int:
+        if a < b:
+            return -1
+        elif a == b:
+            return 0
+        else:
+            return 1
+
+    keyword_list.sort(key=cmp_to_key(comparator))
+
+
+def update_keyword_file():
+    keyword_list = get_keyword_list()
+    sort_keyword_by_unicode(keyword_list)
+    text = ""
+    for keyword in keyword_list:
+        text += keyword + "\n"
+    filePath = "keyword.u"
+    with open(filePath, "w", encoding="utf-8") as file:
+        file.write(text)
+
+
+def update_token_name_file():
+    token_name_list = get_token_name_list()
+    sort_keyword_by_unicode(token_name_list)
+    text = ""
+    for keyword in token_name_list:
+        text += keyword + "\n"
+    filePath = "token_name.u"
+    with open(filePath, "w", encoding="utf-8") as file:
+        file.write(text)
+
+
+update_keyword_file()
+update_token_name_file()
+create_kotlin()

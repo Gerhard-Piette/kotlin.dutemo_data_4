@@ -1,0 +1,43 @@
+Number
+	:da
+
+		N
+			:m
+				Number
+
+		add
+			:aa
+				i0
+					N
+				i1
+					N
+				!
+					N
+
+		subtract
+			:aa
+				i0
+					N
+				i1
+					N
+				!
+					N
+
+		multiply
+			:aa
+				i0
+					N
+				i1
+					N
+				!
+					N
+
+		divide
+			:aa
+				i0
+					N
+				i1
+					N
+				!
+					N
+
