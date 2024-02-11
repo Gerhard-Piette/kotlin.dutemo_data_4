@@ -1,6 +1,6 @@
 package com.volupism.dutemo_data_4
 
-import com.volupism.s2_0.S2
+import com.volupism.ds2_0.Ds2
 import com.volupism.string_1.Letter
 import com.volupism.string_1.String_creator
 
@@ -14,21 +14,25 @@ class Page {
      */
     var uri: String = ""
 
+    var dutemo_edition: String = ""
+
     var text: String = ""
 
     var letter = Letter()
 
-    var token_s: S2<Token> = S2(256)
+    var token_s: Ds2<Token> = Ds2(256)
 
     /**
      * input key = Name of some item declared in the Page namespace.
      * output value = The name token.
      */
-    var token_l: Map<String, Token> = LinkedHashMap()
+    var token_d: LinkedHashMap<String, Token> = LinkedHashMap()
 
-    var error_s: S2<String> = S2(0)
+    var syntax_error_s: Ds2<SyntaxError> = Ds2(0)
 
-    constructor(text:String){
+    var model_error_s: Ds2<ModelError> = Ds2(0)
+
+    constructor(text: String) {
         this.text = text
     }
 
@@ -57,7 +61,6 @@ class Page {
         sc.add(" )")
         return sc.toString()
     }
-
 
     fun get_token_string(): String {
         var sc = String_creator()

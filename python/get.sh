@@ -1,1 +1,1 @@
-python -m Creator.py
+python Creator.py

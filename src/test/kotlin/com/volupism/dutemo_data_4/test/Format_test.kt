@@ -1,7 +1,7 @@
 package com.volupism.dutemo_data_4.test
 
 import com.volupism.dutemo_data_4.Page
-import com.volupism.dutemo_data_4.Parser
+import com.volupism.dutemo_data_4.String_parser
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
@@ -18,8 +18,8 @@ class Format_test {
     fun test0() {
         var text = read_file("format_0.dutemo.u")
         var page = Page(text)
-        var parser = Parser()
-        parser.probe(page)
+        var stringparser = String_parser()
+        stringparser.probe(page)
         println(page.get_token_string())
         assertEquals(text, page.get_formatted_dutemo())
     }

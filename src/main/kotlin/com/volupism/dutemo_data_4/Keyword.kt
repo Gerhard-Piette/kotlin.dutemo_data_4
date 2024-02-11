@@ -1,19 +1,21 @@
 package com.volupism.dutemo_data_4
 
-import com.volupism.s2_0.S2
+import com.volupism.ds2_0.Ds2
 
 /**
  * Created by Creator.py
  */
 class Keyword {
 
-    var keyword_s: S2<String>
+    var keyword_s: Ds2<String>
 
     var keyword_set: HashSet<String> = HashSet()
 
     constructor() {
 // Created by Key_creator.py
         var keyword_list = listOf(
+            Key._Colon_dutemo,
+            Key._Colon_dma,
             Key._Colon_get,
             Key._QM__QM__QM_b,
             Key._Colon_16_Plus_,
@@ -29,6 +31,7 @@ class Keyword {
             Key._Colon__GT__EQ_,
             Key._Colon_bn,
             Key._Colon_bp,
+            Key._Colon_da,
             Key._Colon_di,
             Key._Colon_lc,
             Key._Colon_li,
@@ -85,8 +88,10 @@ class Keyword {
             Key._EQ_,
             Key._QM_,
         )
-        this.keyword_s = S2(keyword_list)
+        this.keyword_s = Ds2(keyword_list)
 
+        keyword_set.add(Key._Colon_dutemo)
+        keyword_set.add(Key._Colon_dma)
         keyword_set.add(Key._Colon_get)
         keyword_set.add(Key._QM__QM__QM_b)
         keyword_set.add(Key._Colon_16_Plus_)
@@ -102,6 +107,7 @@ class Keyword {
         keyword_set.add(Key._Colon__GT__EQ_)
         keyword_set.add(Key._Colon_bn)
         keyword_set.add(Key._Colon_bp)
+        keyword_set.add(Key._Colon_da)
         keyword_set.add(Key._Colon_di)
         keyword_set.add(Key._Colon_lc)
         keyword_set.add(Key._Colon_li)

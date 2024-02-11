@@ -6,7 +6,7 @@ import com.volupism.string_1.get_letter_location
 import com.volupism.unicode_basic_0.Unicode
 import com.volupism.unicode_basic_0.Unicode_basic
 
-class Parser {
+class String_parser {
 
     var keyword = Keyword()
 
@@ -50,7 +50,7 @@ class Parser {
         }
         if (create_token) {
             var token = Token(ret, Key.Line_offset, "", page)
-            page.token_s.add_high_1(token)
+            page.token_s.add(token)
         }
         return ret
     }
@@ -125,20 +125,20 @@ class Parser {
             return false
         }
         var token = Token(page.text.length, Key.END_OF_TEXT, "", page)
-        page.token_s.add_high_1(token)
+        page.token_s.add(token)
         return true
     }
 
     fun add_token(ini: Int, key: String, page: Page): Token {
         var text = page.text.substring(ini, page.letter.position)
         var token = Token(ini, key, text, page)
-        page.token_s.add_high_1(token)
+        page.token_s.add(token)
         return token
     }
 
     fun add_keyword_token(ini: Int, model: String, page: Page) {
         var token = Token(ini, model, "", page)
-        page.token_s.add_high_1(token)
+        page.token_s.add(token)
     }
 
     fun move_after_codepoint(page: Page, codepoint: Int): Int {
@@ -343,7 +343,7 @@ class Parser {
             }
         }
         var ret = Token(ini, keyword, sc.toString(), page)
-        page.token_s.add_high_1(ret)
+        page.token_s.add(ret)
         return true
     }
 

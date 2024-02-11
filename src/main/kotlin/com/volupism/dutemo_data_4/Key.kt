@@ -1,7 +1,5 @@
 package com.volupism.dutemo_data_4
 
-import com.volupism.s2_0.S2
-
 /**
  * Created by Creator.py
  */
@@ -102,16 +100,25 @@ class Key {
         val _Colon_bp = ":bp"
 
         @JvmStatic
+        val _Colon_da = ":da"
+
+        @JvmStatic
         val _Colon_di = ":di"
 
         @JvmStatic
         val _Colon_dl = ":dl"
 
         @JvmStatic
+        val _Colon_dma = ":dma"
+
+        @JvmStatic
         val _Colon_ds = ":ds"
 
         @JvmStatic
         val _Colon_du = ":du"
+
+        @JvmStatic
+        val _Colon_dutemo = ":dutemo"
 
         @JvmStatic
         val _Colon_e = ":e"

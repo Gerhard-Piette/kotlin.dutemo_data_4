@@ -51,7 +51,7 @@
         </dependency>
         <dependency>
             <groupId>com.volupism</groupId>
-            <artifactId>s2_0</artifactId>
+            <artifactId>ds2_0</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- Add your other dependencies here -->

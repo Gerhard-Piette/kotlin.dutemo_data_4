@@ -27,7 +27,7 @@ def get_token_name_list() -> list[str]:
 def get_kotlin_part0() -> str:
     ret = "package com.volupism.dutemo_data_4" + "\n"
     ret += "\n"
-    ret += "import com.volupism.s2_0.S2" + "\n"
+    ret += "import com.volupism.ds2_0.Ds2" + "\n"
     ret += "\n"
     ret += "/**" + "\n"
     ret += " * Created by Key_creator.py" + "\n"

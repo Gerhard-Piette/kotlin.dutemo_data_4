@@ -28,7 +28,7 @@ def clean_file(file_path: str, item_list: list[str]):
 def create_Key_class(kotlin_folder_name:str) -> str:
     ret = "package com.volupism." + kotlin_folder_name + "\n"
     ret += "\n"
-    ret += "import com.volupism.s2_0.S2" + "\n"
+    ret += "import com.volupism.ds2_0.Ds2" + "\n"
     ret += "\n"
     ret += "/**" + "\n"
     ret += " * Created by Creator.py" + "\n"
@@ -81,7 +81,7 @@ def get_name(key: str) -> str:
 def create_Keyword_class(kotlin_folder_name:str) -> str:
     ret = "package com.volupism." + kotlin_folder_name + "\n"
     ret += "\n"
-    ret += "import com.volupism.s2_0.S2" + "\n"
+    ret += "import com.volupism.ds2_0.Ds2" + "\n"
     ret += "\n"
     ret += "/**" + "\n"
     ret += " * Created by Creator.py" + "\n"
@@ -91,7 +91,7 @@ def create_Keyword_class(kotlin_folder_name:str) -> str:
     add_item(keyword_list, "other_keyword.u")
     add_item(keyword_list, "base_model_keyword.u")
     ret += "\n"
-    ret += "var keyword_s: S2<String>" + "\n"
+    ret += "var keyword_s: Ds2<String>" + "\n"
     ret += "\n"
     ret += "var keyword_set: HashSet<String> = HashSet()" + "\n"
     ret += "\n"
@@ -103,7 +103,7 @@ def create_Keyword_class(kotlin_folder_name:str) -> str:
     for keyword in keyword_list:
         ret += "\n" + "Key." + get_name(keyword) + ","
     ret += ")" + "\n"
-    ret += "this.keyword_s = S2(keyword_list)" + "\n"
+    ret += "this.keyword_s = Ds2(keyword_list)" + "\n"
     for keyword in keyword_list:
         ret += "\n" + "keyword_set.add(Key." + get_name(keyword) + ")"
     ret += "\n" + "}"
