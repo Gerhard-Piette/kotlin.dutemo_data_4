@@ -23,10 +23,14 @@ class Token {
     var text: String = ""
 
     /**
-     * The model token indicates the model for the output from this token.<br>
-     * A model token is either name token or keyword token.<br>
+     * The model token indicates the model for the output from this token.
+     *
+     * A model token is either name token or keyword token.
+     *
+     * A model without name is implemented as model with a name that is created by the compiler.
+     *
      */
-    var model: Token? = null
+    var output_model: Token? = null
 
     /**
      * Used for the implementation of :m models.<br>
@@ -64,7 +68,7 @@ class Token {
      */
     fun copy(): Token {
         var ret = Token(number, key, text, page)
-        ret.model = this.model
+        ret.output_model = this.output_model
         return ret
     }
 }

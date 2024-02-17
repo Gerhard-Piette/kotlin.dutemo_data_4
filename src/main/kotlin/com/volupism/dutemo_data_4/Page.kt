@@ -22,15 +22,9 @@ class Page {
 
     var token_s: Ds2<Token> = Ds2(256)
 
-    /**
-     * input key = Name of some item declared in the Page namespace.
-     * output value = The name token.
-     */
-    var token_d: LinkedHashMap<String, Token> = LinkedHashMap()
+    var error_s: Ds2<Dutemo_error> = Ds2(0)
 
-    var syntax_error_s: Ds2<SyntaxError> = Ds2(0)
-
-    var model_error_s: Ds2<ModelError> = Ds2(0)
+    var namespace: Namespace = Namespace()
 
     constructor(text: String) {
         this.text = text
@@ -44,7 +38,6 @@ class Page {
     override fun toString(): String {
         return get_string()
     }
-
 
     fun get_text(ini: Int, fini: Int): String {
         return text.substring(ini, fini)

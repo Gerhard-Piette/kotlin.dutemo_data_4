@@ -6,7 +6,7 @@ import com.volupism.string_1.get_letter_location
 import com.volupism.unicode_basic_0.Unicode
 import com.volupism.unicode_basic_0.Unicode_basic
 
-class String_parser {
+class Lexer {
 
     var keyword = Keyword()
 
@@ -169,7 +169,7 @@ class String_parser {
         }
         if (add_token) {
             var token = add_token(ini_pos, Key.Decimal_integer, page)
-            token.model = Base_model_token._Colon_0_Plus_
+            token.output_model = Base_model_token._Colon_0_Plus_
         }
         return true
     }
@@ -187,7 +187,7 @@ class String_parser {
         if (found) {
             if (add_token) {
                 var token = add_token(ini_pos, Key.Decimal_signed_integer, page)
-                token.model = Base_model_token._Colon_0_Minus_
+                token.output_model = Base_model_token._Colon_0_Minus_
             }
             return true
         }
@@ -217,7 +217,7 @@ class String_parser {
         if (found) {
             if (add_token) {
                 var token = add_token(ini_pos, Key.Decimal_number, page)
-                token.model = Base_model_token._Colon_0
+                token.output_model = Base_model_token._Colon_0
             }
             return true
         }
