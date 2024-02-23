@@ -9,29 +9,7 @@ import com.volupism.ds2_0.Ds2
  */
 class Namespace {
 
-    /**
-     *  Data from the Key class.
-     *  - "" indicates Page namespace.
-     *  - :a indicates a :a namespace.
-     */
-    var key: String = ""
-
-    /**
-     * input = Name in a statement.
-     *
-     * output = List of tokens linked to the name. A list of tokens because of non-unique names for agendas.
-     */
-    var statement_d: LinkedHashMap<String, List<Token>> = LinkedHashMap()
-
-    /**
-     * Position of the token where the namespace begins.
-     */
-    var ini: Int = 0
-
-    /**
-     * Position of the token where the namespace ends.
-     */
-    var fini: Int = 0
+    var page: Page? = null
 
     /**
      * The low namespace that contains this namespace.
@@ -46,5 +24,25 @@ class Namespace {
      * null indicates absence of higher namespaces.
      */
     var high_namespace_ds: Ds2<Namespace>? = null
+    
+    /**
+     * Position of the token where the namespace begins.
+     *
+     * The token indicates the kind of namespace.
+     *
+     */
+    var ini: Int = 0
+
+    /**
+     * Position of the token where the namespace ends.
+     */
+    var fini: Int = 0
+
+    /**
+     * input = Name in a statement.
+     *
+     * output = List of tokens linked to the name. A list of tokens because of non-unique names for agendas.
+     */
+    var statement_d: LinkedHashMap<String, List<Token>> = LinkedHashMap()
 
 }

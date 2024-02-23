@@ -4,7 +4,7 @@ import com.volupism.string_1.String_creator
 
 class Token {
 
-    var page: Page? = null
+    var namespace: Namespace? = null
 
     /**
      * The ini position in a text.<br>
@@ -44,11 +44,11 @@ class Token {
         this.key = key
     }
 
-    constructor(number: Int, key: String, text: String, page: Page?) {
+    constructor(number: Int, key: String, text: String, namespace: Namespace?) {
         this.number = number
         this.key = key
         this.text = text
-        this.page = page
+        this.namespace = namespace
     }
 
     override fun toString(): String {
@@ -58,7 +58,7 @@ class Token {
         var t = text.replace("\n", "\\n")
         sc.add(" ; text \"" + t + "\"")
         sc.add(" ; key " + key)
-        sc.add(" ; page " + page)
+        sc.add(" ; namespace " + namespace)
         sc.add(" )")
         return sc.toString()
     }
@@ -67,7 +67,7 @@ class Token {
      * Gives a copy of this token except for this.m_model_l.
      */
     fun copy(): Token {
-        var ret = Token(number, key, text, page)
+        var ret = Token(number, key, text, namespace)
         ret.output_model = this.output_model
         return ret
     }
