@@ -44,11 +44,10 @@ class Token {
         this.key = key
     }
 
-    constructor(number: Int, key: String, text: String, namespace: Namespace?) {
+    constructor(number: Int, key: String, text: String) {
         this.number = number
         this.key = key
         this.text = text
-        this.namespace = namespace
     }
 
     override fun toString(): String {
@@ -67,7 +66,8 @@ class Token {
      * Gives a copy of this token except for this.m_model_l.
      */
     fun copy(): Token {
-        var ret = Token(number, key, text, namespace)
+        var ret = Token(number, key, text)
+        ret.namespace = namespace
         ret.output_model = this.output_model
         return ret
     }

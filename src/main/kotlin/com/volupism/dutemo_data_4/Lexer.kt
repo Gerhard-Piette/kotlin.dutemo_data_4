@@ -49,7 +49,7 @@ class Lexer {
             ret++
         }
         if (create_token) {
-            var token = Token(ret, Key.Line_offset, "", page)
+            var token = Token(ret, Key.Line_offset, "")
             page.token_s.add(token)
         }
         return ret
@@ -124,20 +124,20 @@ class Lexer {
         if (page.letter.position < page.text.length) {
             return false
         }
-        var token = Token(page.text.length, Key.END_OF_TEXT, "", page)
+        var token = Token(page.text.length, Key.END_OF_TEXT, "")
         page.token_s.add(token)
         return true
     }
 
     fun add_token(ini: Int, key: String, page: Page): Token {
         var text = page.text.substring(ini, page.letter.position)
-        var token = Token(ini, key, text, page)
+        var token = Token(ini, key, text)
         page.token_s.add(token)
         return token
     }
 
     fun add_keyword_token(ini: Int, model: String, page: Page) {
-        var token = Token(ini, model, "", page)
+        var token = Token(ini, model, "")
         page.token_s.add(token)
     }
 
@@ -342,7 +342,7 @@ class Lexer {
                 break
             }
         }
-        var ret = Token(ini, keyword, sc.toString(), page)
+        var ret = Token(ini, keyword, sc.toString())
         page.token_s.add(ret)
         return true
     }
