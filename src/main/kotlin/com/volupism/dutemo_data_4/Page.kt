@@ -97,5 +97,9 @@ class Page {
         return sc.toString()
     }
 
+    fun get_token(position: Int): Token? {
+        return token_s.get(position)
+    }
+    
 }
 
